@@ -175,4 +175,10 @@ describe('ProfitShield Backend API Integration', () => {
     expect(res.body.access_token).toBeUndefined();
     expect(res.body.apiSecret).toBeUndefined();
   });
+
+  it('GET non-existent /api/foo returns 404 JSON, not HTML', async () => {
+    const res = await request(app).get('/api/does-not-exist');
+    expect(res.status).toBe(404);
+    expect(res.body.error).toBeDefined();
+  });
 });

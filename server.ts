@@ -1,5 +1,7 @@
 import express, { Request, Response } from 'express';
 import path from 'path';
+import fs from 'fs';
+import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { authMiddleware } from './server/middleware/auth';
@@ -26,7 +28,7 @@ export async function createServer() {
   const app = express();
   const server = http.createServer(app);
   const PORT = Number(process.env.PORT) || 3000;
-  const isProd = process.env.NODE_ENV === 'production';
+  const isProd = process.env.NODE_ENV === 'production' || Boolean(process.env.RENDER);
 
   // Standard middleware
   app.use(express.json());
@@ -62,6 +64,11 @@ export async function createServer() {
   app.use('/api/alerts', authMiddleware, alertsRouter);
   app.use('/api/admin', authMiddleware, adminRouter);
 
+  // Catch-all 404 for unhandled API routes (preventing SPA fallback on API endpoints)
+  app.all('/api/*', (req: Request, res: Response) => {
+    res.status(404).json({ error: 'Endpoint not found', path: req.path });
+  });
+
   // Frontend integration: Vite middleware in development or static in production
   if (!isProd) {
     const { createServer: createViteServer } = await import('vite');
@@ -76,9 +83,38 @@ export async function createServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.resolve(__dirname, 'dist');
+    const indexPath = path.resolve(distPath, 'index.html');
+
+    // If dist/index.html does not exist on startup, trigger build as safety net
+    if (!fs.existsSync(indexPath)) {
+      console.warn(`[ProfitShield] Production build not found at ${indexPath}. Triggering build now...`);
+      try {
+        execSync('npm run build', { cwd: __dirname, stdio: 'inherit' });
+        console.log('[ProfitShield] Production build completed successfully.');
+      } catch (err: any) {
+        console.error('[ProfitShield Error] Automated build failed:', err.message);
+      }
+    }
+
     app.use(express.static(distPath));
+
     app.get('*', (req: Request, res: Response) => {
-      res.sendFile(path.resolve(distPath, 'index.html'));
+      // Ensure API endpoints return 404 rather than serving index.html
+      if (req.path.startsWith('/api/')) {
+        return res.status(404).json({ error: 'Endpoint not found', path: req.path });
+      }
+
+      if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath, (err) => {
+          if (err && !res.headersSent) {
+            res.status(500).send('Error serving application frontend.');
+          }
+        });
+      } else {
+        res.status(503).send(
+          'Frontend build not found. Please ensure "npm run build" ran before starting the server.'
+        );
+      }
     });
   }
 

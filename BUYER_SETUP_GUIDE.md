@@ -135,10 +135,10 @@ You can deploy ProfitShield as a single full-stack container or Node.js service:
 
 ### Option A: Render / Railway / Fly.io (Easiest)
 1. Push repository to private GitHub repo.
-2. Connect to Render/Railway as a Web Service.
-3. Build command: `npm install && npm run build`
-4. Start command: `node dist/server.js` or `npm run start`
-5. Configure environment variables in dashboard.
+2. Connect to Render as a **Web Service** (Environment: `Node`).
+3. **Build Command**: `npm install && npm run build`
+4. **Start Command**: `npm start`
+5. Configure environment variables in dashboard (`APP_URL`, `DATABASE_URL`, `SHOPIFY_API_KEY`, `SHOPIFY_API_SECRET`).
 
 ### Option B: Docker / Cloud Run / AWS ECS
 Build a Docker image with Node.js 20 Alpine:
