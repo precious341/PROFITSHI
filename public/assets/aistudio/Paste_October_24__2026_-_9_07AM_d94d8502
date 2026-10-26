@@ -1,0 +1,922 @@
+
+
+PROJECT: PROFITSHIELD
+
+Build a Complete, Professional Shopify Profit Protection Application
+
+Act as a senior full-stack software engineer, Shopify app developer, UI/UX designer, database architect, and software tester.
+
+Build a complete, professional, production-oriented Shopify application named ProfitShield.
+
+The purpose of this project is to create a valuable, functional software product that can be transferred and sold to another software owner or business. The code must be organised, maintainable, documented, secure, and easy for another developer to operate.
+
+Do not build merely a landing page or a visual prototype. Build the actual application, including its frontend, backend, database, calculations, authentication, Shopify integration, testing, and deployment configuration.
+
+Do not stop after generating the interface. Continue implementing the required functionality until the application is complete, subject to the available development environment.
+
+1. PRODUCT PURPOSE
+
+ProfitShield helps Shopify merchants identify products, orders, discounts, shipping costs, and refunds that may be reducing their profit margins.
+
+The application must turn store data into understandable findings and practical recommendations.
+
+Its main differentiator is the Profit Leak Finder, which identifies potential profit problems, explains why they matter, and displays the underlying calculations and evidence.
+
+Do not advertise the application as guaranteeing increased profits or identifying every possible financial loss.
+
+Do not use generic AI marketing language. The product must work through reliable calculations and implemented rules. Do not require a paid AI API.
+
+2. TECHNOLOGY STACK
+
+Use the following technologies:
+
+Frontend:
+	•	React
+	•	JavaScript
+	•	Vite
+	•	Tailwind CSS
+	•	React Router
+	•	Lucide React icons
+	•	Reusable JSX components
+
+Backend:
+	•	Node.js
+	•	Express
+	•	JavaScript ES modules
+
+Database:
+	•	PostgreSQL
+	•	Use database migrations and a documented schema.
+	•	Support a standard PostgreSQL connection through DATABASE_URL.
+
+Shopify integration:
+	•	Shopify’s current supported app-development framework and authentication approach.
+	•	Shopify GraphQL Admin API for new public app functionality.
+	•	Shopify App Bridge for the embedded Shopify admin experience.
+	•	Shopify’s recommended app-billing system for public apps.
+
+Testing:
+	•	Vitest for appropriate frontend and unit tests.
+	•	Supertest for backend API tests.
+	•	Add integration tests where practical.
+
+Use compatible, stable package versions. Check package compatibility before installing dependencies.
+
+Do not use TypeScript, Python, or an unrelated framework unless a documented technical requirement makes it necessary.
+
+Do not mix incompatible versions of Shopify packages.
+
+3. REQUIRED APPLICATION STRUCTURE
+
+Create a clean project structure with separate directories for:
+	•	Frontend pages and components
+	•	Frontend utilities and API clients
+	•	Backend routes
+	•	Backend controllers and services
+	•	Shopify authentication and integration
+	•	Profit calculation logic
+	•	Database migrations
+	•	Database access
+	•	Authentication and authorization middleware
+	•	Subscription and feature-access logic
+	•	Tests
+	•	Configuration
+	•	Documentation
+
+Keep calculation logic independent from React components.
+
+Do not place the entire application in one file.
+
+Do not create duplicate components, conflicting routes, unnecessary dependencies, or multiple competing database implementations.
+
+Provide a README.md, .env.example, database migration files, and all files required to run the project.
+
+4. DESIGN AND USER EXPERIENCE
+
+Build a modern financial analytics dashboard suitable for international e-commerce businesses.
+
+Visual direction:
+	•	Professional dark navy and white interface.
+	•	Subtle green accents for positive financial results.
+	•	Orange or red accents for warnings and potential losses.
+	•	Clean typography.
+	•	Consistent spacing.
+	•	Rounded cards with restrained shadows.
+	•	Clear tables and readable charts.
+	•	Responsive design for desktop, tablet, and mobile.
+	•	Accessible form controls and keyboard navigation.
+
+Avoid an overcrowded dashboard, excessive animations, fake statistics, and decorative elements that interfere with usability.
+
+Create a professional marketing landing page with:
+	•	Product introduction
+	•	Explanation of the profit problems it addresses
+	•	Feature sections
+	•	How it works
+	•	Pricing
+	•	Frequently asked questions
+	•	Privacy and security information
+	•	Clear calls to action
+	•	Footer with legal and contact placeholders
+
+Use attractive but restrained financial dashboard illustrations and charts.
+
+Do not use copyrighted logos, fake customer testimonials, invented customer numbers, or fabricated reviews.
+
+The product must be branded as ProfitShield. Do not display development-platform branding or phrases such as “Powered by Gemini.”
+
+5. PUBLIC LANDING PAGE
+
+Create these sections:
+
+A. Navigation
+	•	ProfitShield logo and name.
+	•	Features.
+	•	How It Works.
+	•	Pricing.
+	•	Documentation.
+	•	Sign In.
+	•	Get Started.
+
+B. Hero
+Headline:
+“Find the Profit Leaks in Your Store.”
+
+Supporting text:
+“Understand how product costs, discounts, shipping, and refunds affect your Shopify store’s profitability.”
+
+Buttons:
+	•	Explore the Dashboard
+	•	Connect Your Store
+
+Only claim a Shopify connection is available when the actual integration has been configured. If it is not configured, explain that the integration is not yet available.
+
+C. Feature cards
+	•	Profit Leak Finder
+	•	Product Margin Analysis
+	•	Discount Impact
+	•	Shipping Cost Analysis
+	•	Refund Impact
+	•	Margin Alerts
+	•	Downloadable Reports
+
+D. How It Works
+	1.	Connect an authorised Shopify store.
+	2.	Import the permitted store data.
+	3.	Analyse profit margins and potential losses.
+	4.	Review findings and recommendations.
+
+E. Pricing
+Show the Free, Pro, and Business plans described in the pricing section below.
+
+F. FAQ
+Explain data access, calculation limitations, subscriptions, cancellation, security, and account management.
+
+6. AUTHENTICATION AND ACCOUNTS
+
+Implement secure authentication appropriate to the chosen application architecture.
+
+For standalone application accounts, include:
+	•	Registration
+	•	Login
+	•	Logout
+	•	Password hashing
+	•	Session management
+	•	Password reset architecture
+	•	Protected routes
+	•	Server-side access checks
+
+Validate all user input on the server.
+
+Never store plaintext passwords.
+
+Do not invent a Shopify authentication flow. When the merchant installs or opens the embedded app, use Shopify’s supported authentication and session-token mechanisms.
+
+Use Shopify’s authentication model for Shopify merchant access.
+
+Clearly distinguish between:
+	•	Application account identity, if standalone accounts are required.
+	•	Shopify merchant identity.
+	•	Authorised store installation.
+
+Do not permit one merchant to access another merchant’s data.
+
+7. SHOPIFY STORE CONNECTION
+
+Implement a proper Shopify connection flow.
+
+Requirements:
+	•	Support authorised installation and authentication.
+	•	Use the currently supported Shopify OAuth or managed authentication approach appropriate to the selected app framework.
+	•	Use the GraphQL Admin API for new public app functionality.
+	•	Request only the access scopes required by the implemented features.
+	•	Validate session tokens on protected requests.
+	•	Store installation information securely.
+	•	Protect access and refresh tokens where applicable.
+	•	Handle token revocation and app uninstallation.
+	•	Handle expired sessions and API errors.
+	•	Respect Shopify API rate limits.
+	•	Handle pagination correctly.
+	•	Prevent duplicate imports.
+	•	Record synchronisation status and the last successful sync time.
+	•	Provide a manual sync action.
+	•	Provide useful loading, success, and failure messages.
+
+Do not expose access tokens or API secrets to the browser.
+
+Never place private Shopify credentials in frontend environment variables.
+
+Use the current official Shopify API version supported when implementing the project. Document the chosen version and make future upgrades straightforward.
+
+If a real Shopify development store or credentials are unavailable, implement a clearly labelled demo mode and prepare the integration code for configuration. Do not pretend that a real store is connected.
+
+8. CORE FEATURE: PROFIT LEAK FINDER
+
+This is the most important feature.
+
+Create a dashboard that analyses available product and order data to identify potential problems.
+
+Each finding should include:
+	•	Finding title.
+	•	Affected product or order.
+	•	Severity.
+	•	Relevant date or period.
+	•	Estimated financial impact, when calculable.
+	•	Calculation explanation.
+	•	Evidence used.
+	•	Recommended action.
+	•	Confidence or data-completeness indicator.
+
+Examples:
+	•	A product’s estimated profit margin is below the merchant’s target.
+	•	A discount reduces the estimated margin below the target.
+	•	Shipping expenses consume an unusually high percentage of the order value.
+	•	A refund materially reduces the estimated profitability of a product or order.
+	•	Product costs are missing, preventing a reliable profit calculation.
+
+Do not label a product as loss-making when required cost information is missing.
+
+Do not invent product costs, shipping costs, refund amounts, or other financial values.
+
+When the information is insufficient, explain exactly which fields are missing.
+
+Allow merchants to filter findings by:
+	•	Date range.
+	•	Product.
+	•	Order.
+	•	Severity.
+	•	Finding category.
+	•	Status.
+
+Include:
+	•	Open findings.
+	•	Resolved findings.
+	•	Dismissed findings.
+	•	Finding details.
+	•	Resolution notes.
+	•	A clear audit trail of status changes.
+
+Use deterministic rules and calculations rather than fabricated AI analysis.
+
+9. PROFIT CALCULATION ENGINE
+
+Build the calculation engine as separate, tested JavaScript functions.
+
+Where the required fields are available, calculate:
+
+Net sales:
+	•	Product sales after applicable discounts and adjustments.
+	•	Use a clearly documented definition and avoid subtracting discounts twice.
+
+Estimated gross profit:
+	•	Applicable net sales minus the corresponding cost of goods sold.
+
+Estimated gross margin:
+	•	Estimated gross profit divided by applicable net sales, multiplied by 100.
+
+Discount impact:
+	•	Compare the estimated profit before a discount with the estimated profit after the discount, keeping other assumptions consistent.
+
+Shipping impact:
+	•	Compare shipping revenue, where available, with actual shipping expenses.
+	•	Do not assume shipping revenue and shipping expense are the same.
+
+Refund impact:
+	•	Use actual refund information and available cost information.
+	•	Document how returned inventory and restocking are treated.
+	•	Do not assume every refunded product returns to sellable inventory.
+
+Estimated contribution after available expenses:
+	•	Net sales minus cost of goods sold and other explicitly available expenses.
+
+Do not present gross profit as net profit.
+
+Do not assume that Shopify sales data contains all merchant expenses.
+
+For every calculation:
+	•	Document the formula.
+	•	Validate numeric inputs.
+	•	Handle zero denominators.
+	•	Handle negative adjustments appropriately.
+	•	Handle missing values.
+	•	Avoid floating-point rounding errors in monetary calculations.
+	•	Use appropriate currency formatting.
+	•	Keep original monetary amounts and currencies.
+	•	Avoid combining different currencies without an explicit conversion source.
+
+Display an “Estimated” label wherever the available data cannot establish an exact financial result.
+
+Add unit tests for each calculation.
+
+10. PRODUCT PROFITABILITY DASHBOARD
+
+Create a dashboard with:
+
+Summary cards:
+	•	Net sales.
+	•	Estimated gross profit.
+	•	Estimated gross margin.
+	•	Orders analysed.
+	•	Products analysed.
+	•	Open profit findings.
+
+Charts:
+	•	Sales and estimated profit over time.
+	•	Product margin comparison.
+	•	Profit impact by finding category.
+	•	Discount impact.
+	•	Shipping impact where data is available.
+
+Tables:
+	•	Most profitable products.
+	•	Lowest-margin products.
+	•	Products with missing costs.
+	•	Orders with potential profit problems.
+	•	Recent findings.
+
+Every figure must come from actual database records or clearly labelled sample data.
+
+Do not hardcode attractive financial figures into the live dashboard.
+
+When the merchant has no data, show a helpful empty state rather than invented business performance.
+
+Provide filters for dates, products, and categories.
+
+11. PRODUCT AND ORDER ANALYSIS
+
+Create detailed product and order views.
+
+Product view:
+	•	Product name.
+	•	SKU when available.
+	•	Sales.
+	•	Applicable discounts.
+	•	Available product cost.
+	•	Estimated gross profit.
+	•	Estimated gross margin.
+	•	Target margin.
+	•	Data completeness.
+	•	Related findings.
+
+Order view:
+	•	Order reference.
+	•	Date.
+	•	Applicable sales values.
+	•	Discounts.
+	•	Refund information.
+	•	Shipping revenue where available.
+	•	Shipping expense where available.
+	•	Estimated profitability.
+	•	Related findings.
+
+Do not display customer personal information unless strictly necessary for an implemented feature.
+
+Avoid collecting or storing unnecessary personal information.
+
+12. PRODUCT COST MANAGEMENT
+
+Product cost data is essential for useful profit calculations.
+
+Implement a cost-management module that can:
+	•	Read available product cost information from Shopify.
+	•	Show which products have missing costs.
+	•	Allow authorised merchants to enter or correct cost assumptions when appropriate.
+	•	Record the source and last update time of manually entered values.
+	•	Keep a history of changes to manually maintained cost values.
+	•	Clearly distinguish Shopify-provided values from merchant-entered assumptions.
+
+Do not silently overwrite merchant-entered cost data during synchronisation.
+
+If a cost field is unavailable or cannot be read using the authorised API scopes, explain the limitation.
+
+13. DISCOUNT IMPACT ANALYSIS
+
+Implement a discount-analysis module that:
+	•	Identifies orders and products with discounts.
+	•	Calculates their estimated impact on gross profit.
+	•	Compares margins before and after discounts.
+	•	Highlights discounts that take estimated margins below merchant-defined targets.
+	•	Supports date filtering.
+	•	Shows the assumptions used in each calculation.
+
+Do not claim that a discount caused a loss unless the calculation supports that conclusion.
+
+Use wording such as “potential margin risk” where other business costs are unknown.
+
+14. SHIPPING COST ANALYSIS
+
+Implement shipping analysis using available order and fulfilment information.
+
+Where actual shipping expenses are not available:
+	•	Allow authorised merchants to enter shipping-cost assumptions.
+	•	Record when the assumptions were entered.
+	•	Clearly label the results as estimates.
+	•	Never invent actual carrier charges.
+
+Show:
+	•	Shipping revenue where available.
+	•	Actual shipping costs where available.
+	•	Merchant-entered cost assumptions.
+	•	Estimated shipping impact.
+	•	Orders requiring further review.
+
+15. REFUND AND RETURN ANALYSIS
+
+Implement refund analysis using actual available refund data.
+
+Show:
+	•	Refunded orders.
+	•	Refund amounts.
+	•	Refund dates.
+	•	Related products where the data supports attribution.
+	•	Estimated gross-profit impact.
+	•	Missing cost or inventory information.
+
+Do not assume a refund automatically means that the entire order was lost.
+
+Do not assume returned goods were restocked unless the data supports that conclusion.
+
+16. MARGIN ALERTS
+
+Allow merchants to configure:
+	•	Target gross margin.
+	•	Low-margin threshold.
+	•	High-value potential-loss threshold.
+	•	Alert preferences.
+
+Create in-app alerts for:
+	•	Products below the target margin.
+	•	Missing product costs.
+	•	Significant discount impacts.
+	•	Shipping-cost concerns where sufficient information exists.
+	•	New findings after synchronisation.
+
+Avoid duplicate alerts for the same unchanged issue.
+
+Provide controls to mark an alert as reviewed or resolved.
+
+Do not promise email or external notifications unless the notification service has actually been configured and tested.
+
+17. REPORT GENERATION
+
+Allow merchants to generate downloadable PDF reports.
+
+Reports should include:
+	•	Store name where available.
+	•	Report period.
+	•	Currency.
+	•	Summary metrics.
+	•	Products with low margins.
+	•	Profit Leak Finder findings.
+	•	Discount impact.
+	•	Shipping impact.
+	•	Refund impact.
+	•	Missing-data warnings.
+	•	Recommended next actions.
+	•	Calculation methodology.
+
+Reports must be readable, professional, and suitable for sharing with a business partner.
+
+Use the same data and calculations as the dashboard.
+
+Do not put authentication tokens or unnecessary customer personal information in reports.
+
+18. SUBSCRIPTION PLANS
+
+Prepare the product for the following proposed plans.
+
+FREE:
+	•	One connected store.
+	•	Limited historical analysis.
+	•	Basic product-margin dashboard.
+	•	Limited Profit Leak Finder results.
+	•	Basic report access.
+
+PRO:
+	•	One connected store.
+	•	Full available historical analysis.
+	•	Full Profit Leak Finder.
+	•	Discount impact analysis.
+	•	Shipping and refund analysis.
+	•	Margin alerts.
+	•	Full PDF reports.
+
+BUSINESS:
+	•	Multiple connected stores, subject to the configured limit.
+	•	Full analysis features.
+	•	Consolidated store reporting where supported.
+	•	Advanced filtering.
+	•	Extended report capabilities.
+
+These are proposed product tiers, not verified market prices.
+
+Make plan names, limits, and feature entitlements configurable.
+
+Do not hardcode the assumption that a merchant has paid.
+
+Implement server-side feature-access checks.
+
+A hidden or disabled frontend button is not sufficient protection.
+
+When a feature is unavailable on the current plan, explain the limitation and show an appropriate upgrade action.
+
+For a new public Shopify app, prepare to use Shopify App Pricing where supported. Configure actual plans in the Shopify Partner Dashboard during deployment.
+
+Do not build a fake payment-success page.
+
+Do not mark users as paid merely because they click an upgrade button.
+
+Do not store card numbers or CVV values.
+
+If Shopify billing is not configured, display a clear development-mode notice and prevent simulated purchases from granting real production entitlements.
+
+Where plan status is retrieved from Shopify, use the current supported subscription-status mechanism and validate it on the server.
+
+Handle:
+	•	New subscriptions.
+	•	Active subscriptions.
+	•	Plan changes.
+	•	Cancellations.
+	•	Expired or inactive subscriptions.
+	•	Failed or incomplete billing flows.
+	•	Uninstallation.
+	•	Reinstallation.
+
+Do not promise billing functionality until it has been tested using the appropriate Shopify development environment.
+
+19. ADMINISTRATION
+
+Create a protected application administration area for authorised software operators.
+
+Include:
+	•	Application overview.
+	•	Registered application accounts, if standalone accounts are implemented.
+	•	Connected store records.
+	•	Subscription-status overview.
+	•	Application errors.
+	•	Synchronisation failures.
+	•	Basic usage metrics.
+	•	Application configuration.
+	•	Audit logs.
+
+Show actual values from the database.
+
+Do not invent subscribers, revenue, store counts, or activity.
+
+Do not provide an admin interface that allows ordinary merchants to view other merchants’ private data.
+
+Separate application administration from merchant access.
+
+Use server-side role checks and deny access by default.
+
+Do not implement an insecure public route that grants administrative privileges.
+
+Do not display real revenue unless actual billing data is available.
+
+20. DATABASE
+
+Create a properly structured PostgreSQL database.
+
+Use migrations and appropriate indexes.
+
+Implement the necessary tables for:
+	•	Application users, if needed.
+	•	Store installations.
+	•	Encrypted or protected credentials where applicable.
+	•	Subscription state or locally maintained entitlement records.
+	•	Product records.
+	•	Order records.
+	•	Refund records.
+	•	Cost assumptions.
+	•	Profit findings.
+	•	Margin settings.
+	•	Alerts.
+	•	Report metadata.
+	•	Synchronisation logs.
+	•	Audit logs.
+
+Use appropriate foreign keys and deletion rules.
+
+Add merchant or store ownership relationships to all tenant-specific records.
+
+Ensure database queries are scoped to the authenticated merchant and authorised store.
+
+Prevent cross-store data leakage.
+
+Use transactions where required.
+
+Never commit real credentials, access tokens, or production data into source control.
+
+Do not delete financial records unexpectedly when a merchant disconnects a store.
+
+Document data-retention and deletion behaviour.
+
+21. SECURITY AND PRIVACY
+
+Implement:
+	•	Server-side input validation.
+	•	Authentication and authorization.
+	•	Secure session handling.
+	•	CSRF protection where applicable.
+	•	Rate limiting on sensitive endpoints.
+	•	Appropriate security headers.
+	•	Safe error messages.
+	•	Protection against SQL injection.
+	•	Protection against cross-site scripting.
+	•	Protection against cross-tenant access.
+	•	Secret management through environment variables.
+	•	Secure handling of Shopify credentials.
+	•	HTTPS requirements for deployment.
+	•	Redaction of secrets from logs.
+	•	Appropriate logging and monitoring.
+
+Request only necessary Shopify access scopes.
+
+Implement applicable Shopify privacy and data-handling requirements, including mandatory privacy webhooks where required.
+
+Provide appropriate privacy-policy and terms-of-service placeholders.
+
+Do not claim legal compliance without reviewing the actual implementation and applicable requirements.
+
+Never send merchant data to an external AI service.
+
+Do not expose sensitive environment variables through Vite.
+
+22. DEMO MODE
+
+Implement a useful demo mode for development, testing, and buyer demonstrations.
+
+The demo must contain clearly labelled fictional store data.
+
+Include realistic example products, orders, discounts, refunds, shipping-cost assumptions, and product costs.
+
+The demo should allow a prospective buyer to explore:
+	•	The main dashboard.
+	•	Profit Leak Finder.
+	•	Product analysis.
+	•	Order analysis.
+	•	Margin alerts.
+	•	Reports.
+	•	Pricing and plan restrictions.
+
+Demo data must be kept separate from production merchant data.
+
+Clearly indicate when demo data is being displayed.
+
+Never present demo results as actual customer results.
+
+Do not create fake real-world testimonials or claim that real merchants use the product.
+
+Do not let demo mode bypass production authentication or subscription checks.
+
+23. TESTING REQUIREMENTS
+
+Write and run tests for:
+	•	Profit calculations.
+	•	Gross-margin calculations.
+	•	Discount impact.
+	•	Shipping impact.
+	•	Refund impact.
+	•	Missing cost data.
+	•	Zero-value orders.
+	•	Negative adjustments.
+	•	Currency handling.
+	•	Date filtering.
+	•	Product ownership.
+	•	Store isolation.
+	•	Authentication.
+	•	Authorization.
+	•	Subscription entitlements.
+	•	API validation.
+	•	Report generation.
+	•	Synchronisation failures.
+
+Add integration tests for critical backend workflows.
+
+Run the build and available test suites.
+
+Fix errors caused by your implementation.
+
+Check for:
+	•	Missing imports.
+	•	Invalid React hooks.
+	•	Broken routes.
+	•	Incorrect environment variables.
+	•	Dependency conflicts.
+	•	Missing database migrations.
+	•	Incorrect API response formats.
+	•	Broken loading states.
+	•	Empty states.
+	•	Unhandled exceptions.
+	•	Incorrect financial calculations.
+	•	Inaccessible or misleading controls.
+
+Do not report a test as passing unless it has actually been executed successfully.
+
+If a test cannot be run because credentials, network access, or external services are unavailable, state that limitation clearly.
+
+24. DEPLOYMENT AND CONFIGURATION
+
+Prepare the project for deployment to a suitable hosting provider.
+
+Include:
+	•	Production build configuration.
+	•	Environment-variable documentation.
+	•	PostgreSQL configuration.
+	•	Database migration commands.
+	•	Health-check endpoint.
+	•	Logging configuration.
+	•	Error handling.
+	•	HTTPS requirements.
+	•	Shopify callback and webhook configuration instructions.
+	•	Production deployment instructions.
+	•	Development setup instructions.
+
+Create an .env.example with placeholder values only.
+
+Document required environment variables such as:
+	•	DATABASE_URL.
+	•	SESSION_SECRET.
+	•	Shopify application configuration.
+	•	SHOPIFY_API_KEY, where required by the selected framework.
+	•	SHOPIFY_API_SECRET, where required by the selected framework.
+	•	SHOPIFY_APP_URL.
+	•	Other variables genuinely required by the implementation.
+
+Do not assume every variable name is universally correct for all Shopify frameworks. Use the conventions of the selected, compatible framework and document them.
+
+Do not put real secrets into the source code.
+
+Do not claim that the application is deployed unless it has actually been deployed.
+
+25. SOURCE-CODE TRANSFER AND SALE PREPARATION
+
+This product is intended to be sold to a future owner.
+
+Prepare the source code so that another developer can take ownership without depending on the original developer’s personal accounts.
+
+Include:
+	•	A complete README.
+	•	Installation instructions.
+	•	Architecture documentation.
+	•	Database schema documentation.
+	•	Environment-variable documentation.
+	•	Shopify setup instructions.
+	•	Billing configuration instructions.
+	•	Testing instructions.
+	•	Deployment instructions.
+	•	Troubleshooting guidance.
+	•	Known limitations.
+	•	Dependency list.
+	•	A clear description of the implemented features.
+	•	A list of integrations requiring the buyer’s own credentials.
+
+Do not embed the original developer’s private accounts or credentials.
+
+Do not make the application dependent on a personal hosting account that cannot be transferred.
+
+Use replaceable configuration for external services.
+
+Document which services incur charges and which features depend on external providers.
+
+Include a licence and third-party dependency notices where appropriate. Do not claim ownership of third-party libraries or assets.
+
+Make it possible for the buyer to replace branding, configure pricing, change the domain, and connect their own Shopify developer account.
+
+Do not include fabricated revenue figures, fake customer data presented as real, or false claims of commercial success.
+
+26. DEVELOPMENT WORKFLOW
+
+Follow these stages in order.
+
+STAGE 1: Inspect the current workspace.
+	•	Identify existing files and dependencies.
+	•	Preserve useful working code.
+	•	Do not overwrite unrelated files without checking them.
+
+STAGE 2: Design the architecture.
+	•	Confirm compatible technologies.
+	•	Define the database schema.
+	•	Plan Shopify authentication.
+	•	Plan subscription entitlement checks.
+	•	Define the calculation rules.
+
+STAGE 3: Implement the foundation.
+	•	Set up the project.
+	•	Configure the frontend and backend.
+	•	Configure PostgreSQL.
+	•	Create migrations.
+	•	Add authentication and security middleware.
+
+STAGE 4: Implement the core product.
+	•	Profit Leak Finder.
+	•	Profit calculation engine.
+	•	Product and order dashboards.
+	•	Discount analysis.
+	•	Shipping analysis.
+	•	Refund analysis.
+	•	Margin alerts.
+	•	PDF reports.
+
+STAGE 5: Implement integrations.
+	•	Shopify installation and authentication.
+	•	GraphQL data retrieval.
+	•	Synchronisation.
+	•	Subscription integration.
+	•	Webhook handling.
+
+STAGE 6: Complete the user interface.
+	•	Landing page.
+	•	Dashboard.
+	•	Product details.
+	•	Order details.
+	•	Reports.
+	•	Settings.
+	•	Pricing.
+	•	Administration.
+
+STAGE 7: Testing.
+	•	Run the tests.
+	•	Run the production build.
+	•	Fix implementation errors.
+	•	Verify the core user workflows.
+
+STAGE 8: Documentation and handover.
+	•	Complete the README.
+	•	Complete .env.example.
+	•	Document the required Shopify setup.
+	•	Document deployment and database setup.
+	•	Report any unfinished integrations or unverified functionality.
+
+Do not stop at a plan or list of files. Implement the actual code in the available workspace.
+
+If the development environment cannot complete every stage in one run, finish the current stage cleanly, identify what remains, and continue from the existing files without duplicating or breaking completed work.
+
+27. FINAL ACCEPTANCE CRITERIA
+
+The project is not complete merely because the landing page looks attractive.
+
+Before declaring completion, verify that:
+	1.	The application starts using documented commands.
+	2.	The production build succeeds.
+	3.	Database migrations run successfully.
+	4.	Demo mode works with clearly labelled sample data.
+	5.	Profit calculations are implemented and tested.
+	6.	Missing financial information is handled honestly.
+	7.	Product and order views work.
+	8.	Filters produce correct results.
+	9.	PDF reports use the same calculations as the dashboard.
+	10.	Authentication and authorization protect private data.
+	11.	Merchants cannot access another store’s records.
+	12.	Shopify integration is implemented or its unconfigured status is clearly documented.
+	13.	Subscription restrictions are enforced on the server.
+	14.	Unconfigured billing cannot grant real paid access.
+	15.	Secrets are not exposed in frontend code or source control.
+	16.	The interface has loading, empty, success, and error states.
+	17.	The README explains installation and deployment.
+	18.	The final report distinguishes tested features from features requiring external credentials or further verification.
+
+At the end, provide:
+	•	A summary of the files created or modified.
+	•	The commands needed to install and run the application.
+	•	The required environment variables.
+	•	The tests executed and their actual results.
+	•	The features that are fully implemented.
+	•	The features that still require external credentials or configuration.
+	•	Any known limitations.
+	•	The exact next steps required to prepare the product for transfer to a buyer.
+
+Do not fabricate successful integrations, completed tests, live subscriptions, deployed services, or customer results.
+
+Build ProfitShield as a real, well-organised software product that can be tested, demonstrated, maintained, and transferred to a new owner.
+
+Before you paste the prompt
+
+Use the prompt in the AI coding environment that can create and modify project files, not merely answer questions about code.
+
+A few important points:
+	1.	Don’t pay for hosting yet. Get the application working locally first.
+	2.	Don’t enter real API keys into the prompt. Configure secrets through environment variables.
+	3.	Test with sample data first. This lets you demonstrate the software before connecting a real Shopify store.
+	4.	Don’t claim the Shopify integration works until you have tested it. Shopify requires apps published in its App Store to meet its app requirements and pass review.  ￼
+	5.	Keep the source code and documentation complete. Those are essential if you intend to transfer the project to another owner.

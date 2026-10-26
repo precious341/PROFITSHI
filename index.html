@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      // Ignore WebSocket HMR errors in cloud preview iframe per environment guidelines
+      window.addEventListener('unhandledrejection', function(e) {
+        if (e.reason && (e.reason.message?.includes('WebSocket') || (e.reason.stack && e.reason.stack.includes('@vite/client')))) {
+          e.preventDefault();
+        }
+      });
+      window.addEventListener('error', function(e) {
+        if (e.message && e.message.includes('WebSocket')) {
+          e.preventDefault();
+        }
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProfitShield - Shopify Profit Protection & Margin Analytics</title>
+    <meta name="description" content="Complete Shopify profit analytics and leak protection platform. Uncover margin erosion, hidden shipping costs, discount leaks, and unrecovered refunds." />
+    <meta property="og:title" content="ProfitShield - Shopify Profit Protection & Margin Analytics" />
+    <meta property="og:description" content="Complete Shopify profit analytics and leak protection platform. Uncover margin erosion, hidden shipping costs, discount leaks, and unrecovered refunds." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

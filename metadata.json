@@ -1,0 +1,6 @@
+{
+  "name": "ProfitShield - Shopify Profit Protection & Margin Analytics",
+  "description": "Complete Shopify profit analytics and leak protection platform. Uncover margin erosion, hidden shipping costs, discount leaks, and unrecovered refunds.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
